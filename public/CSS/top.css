@@ -1,0 +1,102 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+header{
+    width:100px;
+    height:100%;
+    max-width: 200px;
+    margin-right:0;
+    margin-left: auto;
+    display:block;
+}
+li{
+    list-style:none;
+
+}
+ul{
+  display: flex;
+  justify-content:center;
+  margin:50px;
+}
+.dropdown{
+  display:none;
+}
+li:hover,
+label:hover{
+  background:#ffefe0;
+}
+
+label,
+li{
+  display:block;
+  padding:2em;
+  font-family:sans-serif;
+  letter-spacing:.05em;
+  font-weight:bold;
+}
+li::before,
+label::before{
+  content:"";
+  display:block;
+  position:absolute;
+  right:5%;
+  width:.5em;
+  height:.5em;
+  transform:rotate(135deg);
+}
+input[type="checkbox"]{
+ display:none;
+}
+label[for="menu1"]{
+  display:block;
+}
+label[for="menu1"]::before{
+  transform:rotate(225deg);
+}
+#menu1:checked + .dropdown{
+  display:block;
+  background-color: #ffffe5;
+}
+
+
+
+label[for="menu2"]{
+  display:block;
+
+}
+label[for="menu2"]::before{
+  transform:rotate(225deg);
+}
+#menu2:checked + .dropdown{
+  display:block;
+  background-color: #ffffe5;
+}
+
+
+label[for="menu3"]{
+  display:block;
+}
+label[for="menu3"]::before{
+  transform:rotate(225deg);
+}
+#menu3:checked + .dropdown{
+  display:block;
+  background-color: #ffffe5;
+}
+div[for="menu4"]{
+  display:block;
+}
+div[for="menu4"]::before{
+  transform:rotate(225deg);
+}
+#menu4:checked + .dropdown{
+  display:block;
+}
+
+footer{
+    background-color: #f2ffe5;
+    text-align:center;
+}

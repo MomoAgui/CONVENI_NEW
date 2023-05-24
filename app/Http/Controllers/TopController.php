@@ -15,4 +15,13 @@ class TopController extends Controller
     {
         return view('top');
     }
+    public function ice(){
+        return view('sevenice');
+    }
+    public function bread(){
+        return view('sevenbread');
+    }
+    public function all(){
+        return view('sevenall');
+    }
 }
