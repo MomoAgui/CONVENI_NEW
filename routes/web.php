@@ -25,6 +25,9 @@ Route::post('/user/register',[UserController::class,'register']);
 
 //ログイン後のtopページ
 Route::get('/top',[TopController::class,'top']);
-Route::get('/sevenice',[TopControler::class,'ice']);
-Route::get('/sevenbread',[TopControler::class,'bread']);
-Route::get('/sevenall',[TopControler::class,'all']);
+Route::get('/sevenice',[TopController::class,'ice']);
+Route::get('/sevenbread',[TopController::class,'bread']);
+Route::get('/sevenall',[TopController::class,'all']);
+Route::get('/famimaice',[TopController::class,'famiice']);
+Route::get('/famimabread',[TopController::class,'famibread']);
+Route::get('/famimaall',[TopController::class,'famiall']);

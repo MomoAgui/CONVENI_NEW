@@ -14,26 +14,29 @@ header{
 }
 li{
     list-style:none;
+}
 
-}
-ul{
-  display: flex;
-  justify-content:center;
-  margin:50px;
-}
 .dropdown{
   display:none;
+}
+a {
+    text-decoration:none;
+    color:#999999;
+}
+
+
+ul{
+  display: flex;
+  text-align:center;
 }
 li:hover,
 label:hover{
   background:#ffefe0;
 }
-
 label,
 li{
-  display:block;
+  display: block;
   padding:2em;
-  font-family:sans-serif;
   letter-spacing:.05em;
   font-weight:bold;
 }
@@ -86,15 +89,7 @@ label[for="menu3"]::before{
   display:block;
   background-color: #ffffe5;
 }
-div[for="menu4"]{
-  display:block;
-}
-div[for="menu4"]::before{
-  transform:rotate(225deg);
-}
-#menu4:checked + .dropdown{
-  display:block;
-}
+
 
 footer{
     background-color: #f2ffe5;

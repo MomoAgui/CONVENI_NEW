@@ -24,4 +24,7 @@ class TopController extends Controller
     public function all(){
         return view('sevenall');
     }
+    public function famiice(){
+        return view('famimaice');
+    }
 }
