@@ -1,8 +1,9 @@
 <div>
+
     <!-- 年 -->
     <select name="birth-year" wire:model="year" wire:change="onChange">
         <option></option>
-        @for($i = 2015 ; $i <= date('Y') ; $i++)
+        @for($i = 2018 ; $i <= date('Y') ; $i++)
         <option value="{{ $i }}">{{ $i }}年</option>
         @endfor
     </select>

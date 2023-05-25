@@ -1,5 +1,6 @@
 @extends('layout')
 
+
 {{-- メインコンテンツ --}}
 @section('contets')
         <img src="/img/.png">

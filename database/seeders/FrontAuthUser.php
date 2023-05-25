@@ -19,7 +19,8 @@ class FrontAuthUser extends Seeder
             'name'=>'テストユーザー',
             'email'=>'hoge@gmail.com',
             'email_verified_at'=>date('Y_m_d H:i:s'),
-            'password'=>Hash::make('pass')
+            'password'=>Hash::make('pass'),
+            'age'=>'',
             ]);
     }
 }

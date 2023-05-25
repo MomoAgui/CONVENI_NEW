@@ -7,6 +7,7 @@ use Livewire\Component;
 
 class Birthday extends Component
 {
+    // 変数をビューで使えるようにここで定義
     public $year = 0;
     public $month = 0;
     public $day = 0;
@@ -22,7 +23,9 @@ class Birthday extends Component
         $this->onChange();
 
     }
-     public function onChange()
+
+    // 入力ボックスに変更のある度に呼ばれる
+    public function onChange()
     {
         $year = intval($this->year);
         $month = intval($this->month);
