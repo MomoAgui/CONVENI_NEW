@@ -23,10 +23,12 @@
         <option value="{{ $i }}">{{ $i }}日</option>
         @endfor
     </select>
-
-    <!-- 年齢 -->
+     <!-- 年齢 -->
     @if($age > -1)
+        <input name="age" type="hidden" value="{{ $age }}">
         &nbsp;/&nbsp;{{ $age }} 才
     @endif
+
+
 
 </div>

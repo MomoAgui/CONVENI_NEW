@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
+
 class FrontAuthUser extends Seeder
 {
     /**
@@ -20,9 +21,7 @@ class FrontAuthUser extends Seeder
             'email'=>'hoge@example.com',
             'email_verified_at'=>date('Y_m_d H:i:s'),
             'password'=>Hash::make('pass'),
-            'age'=>date('Y_m_d'),
-            'birthday'=>date('Y_m_d'),
-            'age'=>date('Y_m_d'),
+            'birthday'=>(2022/12/12),
             ]);
     }
 }

@@ -21,8 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('email',254)->unique();
             $table->datetime('email_verified_at')->nullable();
             $table->string('password',255);
-            $table->integer('birthday');
-            $table->integer('age');
+            $table->birthday->format(config('const.format.date'));
             $table->rememberToken();
             //$table->timestamps();
             $table->dateTime('created_at')->useCurrent();
@@ -39,6 +38,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+          Schema::dropIfExists('users');
     }
 }

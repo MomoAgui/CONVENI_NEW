@@ -21,13 +21,7 @@ class UserRegisterPost extends FormRequest
             'name'=>['required','max:128'],
             'email'=>['required','email','max:254'],
             'password'=>['required','confirmed','max:72'],
-            'age'=>['integer','age','birth-year','birth-month','birth-day'],
-            'birthday'=>['integer','age'],
-            'birth-year'=>['integer'],
-            'birth-month'=>['integer'],
-            'birth-day'=>['integer'],
+            'birthday'=>['birth-year','birth-month','birth-day'],
         ];
     }
 }
-
-

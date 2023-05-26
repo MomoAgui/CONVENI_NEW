@@ -27,8 +27,9 @@ class UserController extends Controller
      public function register(UserRegisterPost $request){
 
           // validate済
-          
+
         // データの取得
+
 
         $datum=$request->validated();
 
@@ -43,8 +44,7 @@ class UserController extends Controller
                echo $e->getMessage();
                exit;
            }
-
-
+ 
 
         // ユーザー登録成功
         $request->session()->flash('front.user_register_success', true);
@@ -54,3 +54,5 @@ class UserController extends Controller
      }
 
 }
+
+ 
