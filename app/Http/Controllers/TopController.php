@@ -3,6 +3,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class TopController extends Controller
 {
@@ -16,7 +17,7 @@ class TopController extends Controller
         return view('top');
     }
     public function ice(){
-        
+
         return view('sevenice');
     }
     public function bread(){
@@ -28,4 +29,5 @@ class TopController extends Controller
     public function famiice(){
         return view('famimaice');
     }
+
 }

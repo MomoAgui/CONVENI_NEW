@@ -21,13 +21,13 @@ class CreateUsersTable extends Migration
             $table->string('email',254)->unique();
             $table->datetime('email_verified_at')->nullable();
             $table->string('password',255);
-            $table->string('age',10);
             $table->integer('birthday');
+            $table->integer('age');
             $table->rememberToken();
             //$table->timestamps();
-            $table->dateTime('created_at')->useCurrent(); 
+            $table->dateTime('created_at')->useCurrent();
             $table->dateTime('updated_at')->useCurrent()->useCurrentOnUpdate();
-            $table->collation = 'utf8mb4_bin';
+            $table->collation ='utf8mb4_bin';
         });
 
     }

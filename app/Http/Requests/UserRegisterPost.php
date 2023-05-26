@@ -20,8 +20,9 @@ class UserRegisterPost extends FormRequest
         return [
             'name'=>['required','max:128'],
             'email'=>['required','email','max:254'],
-            'password'=>['required','confirm','max:72'],
-            'age'=>['string','max:10'],
+            'password'=>['required','confirmed','max:72'],
+            'age'=>['integer','age','birth-year','birth-month','birth-day'],
+            'birthday'=>['integer','age'],
             'birth-year'=>['integer'],
             'birth-month'=>['integer'],
             'birth-day'=>['integer'],

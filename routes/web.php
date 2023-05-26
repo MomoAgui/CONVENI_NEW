@@ -16,7 +16,7 @@ use App\Http\Controllers\UserController;
 */
 
 //非ログ画面
-Route::get('/',[AuthController::class,'index']);
+Route::get('/',[AuthController::class,'index'])->name('front.index');
 Route::post('/login',[AuthController::class,'login']);
 
 //会員登録画面
@@ -24,6 +24,7 @@ Route::get('/user/register',[UserController::class,'index']);
 Route::post('/user/register',[UserController::class,'register']);
 
 //ログイン後のtopページ
+Route::middleware(['auth'])->group(function () {
 Route::get('/top',[TopController::class,'top']);
 Route::get('/sevenice',[TopController::class,'ice']);
 Route::get('/sevenbread',[TopController::class,'bread']);
@@ -31,3 +32,5 @@ Route::get('/sevenall',[TopController::class,'all']);
 Route::get('/famimaice',[TopController::class,'famiice']);
 Route::get('/famimabread',[TopController::class,'famibread']);
 Route::get('/famimaall',[TopController::class,'famiall']);
+Route::get('/logout', [AuthController::class, 'logout']);
+});

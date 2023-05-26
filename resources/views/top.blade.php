@@ -6,6 +6,7 @@
 
 <header>
     <img src="/img/user_icon.png" width="100" height="50"></a><br>
+    <a href="/logout">ログアウト</a><br>
 
 </header>
 
@@ -77,3 +78,5 @@
 
 
 @endsection
+
+
