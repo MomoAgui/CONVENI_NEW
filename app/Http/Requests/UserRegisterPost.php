@@ -22,6 +22,7 @@ class UserRegisterPost extends FormRequest
             'email'=>['required','email','max:254'],
             'password'=>['required','confirmed','max:72'],
             'birthday'=>['birth-year','birth-month','birth-day'],
+            
         ];
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Requests\UserRegisterPost;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User as UserModel;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -27,9 +28,7 @@ class UserController extends Controller
      public function register(UserRegisterPost $request){
 
           // validate済
-
         // データの取得
-
 
         $datum=$request->validated();
 
@@ -44,7 +43,7 @@ class UserController extends Controller
                echo $e->getMessage();
                exit;
            }
- 
+
 
         // ユーザー登録成功
         $request->session()->flash('front.user_register_success', true);
@@ -55,4 +54,3 @@ class UserController extends Controller
 
 }
 
- 

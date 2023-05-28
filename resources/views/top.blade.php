@@ -5,7 +5,8 @@
 
 
 <header>
-    <img src="/img/user_icon.png" width="100" height="50"></a><br>
+    <div class="img1" img src="/img/toplogo.png" width="100" heigth="50"></div>
+    <div class="img2" img src="/img/user_icon.png" width="100" height="50"></a><br>
     <a href="/logout">ログアウト</a><br>
 
 </header>
