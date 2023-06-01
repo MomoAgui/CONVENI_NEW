@@ -14,21 +14,8 @@
 <div class="main">
        
 
-        　<h2>[無添加]　小麦香る食パン</h2><br>
-        <img src="/img/famima/syokupan.png" width="250" height="200"><br>
-        <p class="text">
-                <br>
-                <br>
-               <br>
-               <br>
-                <br>
-                </br>
-　　　　</p>
-　　　　
 
-
-
-        　<h2></h2><br>
+       　<h2></h2><br>
         <img src="/img/png" width="300" height="200"><br>
         <p class="text">
                 <br>
@@ -40,7 +27,7 @@
 　　　　</p>
 
 
-        　<h2>/h2><br>
+         　<h2></h2><br>
         <img src="/img/png" width="300" height="200"><br>
         <p class="text">
                 <br>
@@ -50,7 +37,7 @@
                 <br>
                 </br>
 　　　　</p>
-        
+
        <button><a href="/top">前に戻る</a></button><br>
 
 </div>

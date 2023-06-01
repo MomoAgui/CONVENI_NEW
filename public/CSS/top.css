@@ -3,18 +3,37 @@
     margin:0;
     box-sizing: border-box;
 }
-
-img2{
-    width:100px;
-    height:100px;
-    max-width: 200px;
-    margin-right:0;
-    margin-left: auto;
-    display:block;
+.img{
+  position:relative;
 }
+img_left{
+ position:absolute;
+ left:0;
+}
+.img_right{
+    position: absolute;
+    right:0;
+}
+.main-visual{
+  width:100%;
+  text-align: center;
+  font-family:cursive;
+  font-size:30px;
+}
+
 li{
     list-style:none;
 }
+.main-contets{
+  width:100%;
+  text-align:center;
+}
+ul{
+  display: flex;
+  justify-content:center;
+
+}
+
 
 .dropdown{
   display:none;
@@ -25,10 +44,7 @@ a {
 }
 
 
-ul{
-  display: flex;
-  text-align:center;
-}
+
 li:hover,
 label:hover{
   background:#ffefe0;

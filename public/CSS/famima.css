@@ -1,0 +1,21 @@
+header{
+    padding-top: 50px;
+}
+.main{
+    text-align:center;
+    display: block;
+    background-color: #f7ffef;
+}
+a{
+    text-decoration:none;
+    
+}
+button{    
+    background-color:white;
+    padding:10px 30px;
+    color:grey;
+}
+.main p{
+    text-align: left;
+    display: inline-block;
+}

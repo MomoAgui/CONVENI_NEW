@@ -21,9 +21,9 @@ class CreateUsersTable extends Migration
             $table->string('email',254)->unique();
             $table->datetime('email_verified_at')->nullable();
             $table->string('password',255);
-            $table->integer('birth-yaer');
-            $table->integer('birth-month');
-            $table->integer('birth-day');
+            $table->integer('birth_year')->format('Y');
+            $table->integer('birth_month')->format('m');
+            $table->integer('birth_day')->format('d');
             $table->rememberToken();
             //$table->timestamps();
             $table->dateTime('created_at')->useCurrent();

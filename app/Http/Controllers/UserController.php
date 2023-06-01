@@ -28,9 +28,13 @@ class UserController extends Controller
      public function register(UserRegisterPost $request){
 
           // validate済
+
         // データの取得
 
+
         $datum=$request->validated();
+
+
 
         //パスワードをHashする
            $datum['password'] = Hash::make($datum['password']);

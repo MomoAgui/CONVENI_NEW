@@ -1,11 +1,18 @@
 @extends('layout')
 
-
+@yield('link')<link rel="stylesheet" href="{{secure_asset('/CSS/user.register.css')}}">
 @section('title')@endsection
 
+
 @section('contets')
-<h1>ユーザー登録</h1>
- @if ($errors->any())
+<header>
+    <button><a href="/top">前に戻る</a></button>
+    <p>Sign up</p>
+</header>
+
+<div class="main">
+   
+      @if ($errors->any())
             <div>
             @foreach ($errors->all() as $error)
                 {{ $error }}<br>
@@ -14,12 +21,13 @@
         @endif
         <form action="/user/register" method="post">
             @csrf
-        名前：<input name="name"><br>
-        email:<input name="email" type="email" value="{{ old('email')}}"><br>
-        パスワード：<input name="password" type="password" ><br>
-        パスワード（再度）:<input name="password_confirmation" type="password"><br>
-        お子様の生年月日:@livewire('birthday')<br>
+        <input name="name" type="text" placeholder="Name"><br>
+        <input name="email" type="text" placeholder="Email"/ value="{{old('email')}}"><br>
+        <input name="password" type="password" placeholder="Password"/><br>
+        <input name="password_confirmation" type="password" placeholder="Password again">
+        @livewire('birthday')<br>
 
-        <button>登録する</button><br>
+         <button class="btn">登録する</button><br>
         </form>
+</div>        
 @endsection

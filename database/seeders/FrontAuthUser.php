@@ -21,9 +21,9 @@ class FrontAuthUser extends Seeder
             'email'=>'minmin@example.com',
             'email_verified_at'=>date('Y_m_d H:i:s'),
             'password'=>Hash::make('pass'),
-            'birth-yaer'=>"2022",
-            'birth-month'=>"12",
-            'birth-day'=>"25",
+            'birth_year'=>"2022",
+            'birth_month'=>"12",
+            'birth_day'=>"25",
             ]);
     }
 }

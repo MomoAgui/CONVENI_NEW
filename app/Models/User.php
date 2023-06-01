@@ -21,11 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'birth-year',
-        'birth-month',
-        'birth-day',
-        'birthday',
-        'age',
+        'birth_year',
+        'birth_month',
+        'birth_day',
     ];
 
     /**

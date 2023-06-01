@@ -26,11 +26,20 @@ Route::post('/user/register',[UserController::class,'register']);
 //ログイン後のtopページ
 Route::middleware(['auth'])->group(function () {
 Route::get('/top',[TopController::class,'top']);
+//セブン表示各３
 Route::get('/sevenice',[TopController::class,'ice']);
-Route::get('/sevenbread',[TopController::class,'bread']);
+Route::get('/sevenetc',[TopController::class,'sevenetc']);
 Route::get('/sevenall',[TopController::class,'all']);
+//ファミマ表示各３
 Route::get('/famimaice',[TopController::class,'famiice']);
-Route::get('/famimabread',[TopController::class,'famibread']);
+Route::get('/famimaetc',[TopController::class,'famimaetc']);
 Route::get('/famimaall',[TopController::class,'famiall']);
+//ローソン表示各３
+Route::get('lawsonice',[TopController::class,'lawsonice']);
+Route::get('lawsonetc',[TopController::class,'lawsonetc']);
+Route::get('lawsonall',[TopController::class,'lawsonall']);
+//ログイン後のユーザーiconクリックページ
+Route::get('/user/index',[TopController::class,'index']);
+//ログアウト
 Route::get('/logout', [AuthController::class, 'logout']);
 });
