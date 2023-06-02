@@ -7,8 +7,17 @@
       <header>
         <img src="/img/seven_icon.png" width="70" height="45" >
         <h1>主食系</h1>
-
+            <a href="/task/edit">編集</a>
+            <a href="/task/create">新しい食材を登録する</a>
       </header>
+
+             @if (session('front.sevenice_delete_success') == true)
+                タスクを削除しました<br>
+            @endif
+            @if (session('front.sevenice_completed_failure') == true)
+            タスクの完了に失敗しました....<br>
+            @endif
+
 
  <h2>[無添加]　北海道産小麦の金の生食パン</h2><br>
         <img src="/img/seven/kinpan.png" width="300" height="200"><br>
@@ -116,8 +125,25 @@
                 </br>
 　　　　</p>
 
+　　　　 <table border="1">
+        <tr>
+            <th>商品名
+            <th>特定原材料
+            <th>熱量
+            <th>糖質
+        　　<th>食塩相当量
+        　　<th>備考
 
-　　　　　<br>
+@foreach ($tasks as $task)
+        <tr>
+            <td>{{ $task->name }}
+            <td>{{ $task->allergy }}
+            <td>{{ $task->kcal }}
+            <td>{{ $task->suger }}
+            <td>{{ $task->solt}}
+            <td>{{$task->detail}}
+@endforeach</table>
+
 
  <button><a href="/top">前に戻る</a></button><br>
 

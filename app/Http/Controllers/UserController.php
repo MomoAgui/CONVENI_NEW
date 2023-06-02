@@ -36,13 +36,18 @@ class UserController extends Controller
 
 
 
-        //パスワードをHashする
-           $datum['password'] = Hash::make($datum['password']);
-
 
         // テーブルにINSERT
         try{
-               UserModel::create($datum);
+             UserModel::create([
+                'name' => $datum['name'],
+                'email'=>$datum['email'],
+                'password'=>$datum['password'],
+                'birth_year' => $datum['birth-year'],
+                'birth_month' => $datum['birth-month'],
+                'birth_day' => $datum['birth-day'],
+                'password' => Hash::make($datum['password']),
+        ]);
            }catch(\Throwable $e){
                echo $e->getMessage();
                exit;
