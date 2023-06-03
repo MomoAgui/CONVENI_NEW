@@ -6,6 +6,15 @@ header{
     display: block;
     background-color: #ffefef;
 }
+section{
+    padding:100px;
+    text-align: center;
+    font-size:20px;
+    color:#999999;
+}
+table{
+    margin:auto;
+}
 a{
     text-decoration:none;
 

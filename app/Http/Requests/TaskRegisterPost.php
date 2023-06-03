@@ -20,8 +20,8 @@ class TaskRegisterPost extends FormRequest
             'name'=>['required','max:128'],
             'allergy'=>['required','max:128'],
             'kcal'=>['required'],
-            'suger'=>['required','float'],
-            'solt'=>['required','float'],
+            'suger'=>['required','between:0,99.99'],
+            'solt'=>['required','between:0,99.99'],
             'detail'=>['max:128'],
         ];
     }

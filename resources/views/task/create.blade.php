@@ -19,6 +19,7 @@
            <form action="/task/register" method="post">
                 @csrf
                 商品名:<input name="name" value="{{ old('name') }}"><br>
+                画像：<a href="/add_image">画像をアップロードする</a><br>
                 特定原材料:<input name="allergy"　value="{{ old('allergy')}}" ><br>
                 熱量:<input name="kcal" value="{{ old('kcal')}}" ><br>
                 糖質:<input name="suger" value="{{ old('sugaer')}}"><br>

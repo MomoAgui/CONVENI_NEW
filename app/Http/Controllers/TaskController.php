@@ -7,6 +7,8 @@ use App\Http\Requests\TaskRegisterPost;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Task as TaskModel;
 use Illuminate\Support\Facades\DB;
+use App\Models\Image as ImageModel;
+
 
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
@@ -26,8 +28,9 @@ class TaskController extends Controller
 
     }
       public function ice(){
-          $task=TaskModel::get();
+         $task=TaskModel::get();
          $task = TaskModel::where('user_id',Auth::id())->get();
+         
 
          return view('sevenice', ['tasks' => $task]);
 
@@ -72,6 +75,9 @@ class TaskController extends Controller
         return view('task.create', ['task' => $task]);
 
     }
+    public function upload(){
+    return view('upload');
+}
 
 
     /**

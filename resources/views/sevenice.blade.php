@@ -124,27 +124,20 @@
                備考：お店で蒸したシリーズ総3種の中で<br>最も糖質が低い（塩分は3種同等） <br>
                 </br>
 　　　　</p>
+<section>
+　<table class="row">
+　  @foreach ($tasks as $task)
+        <tr><th>商品名:</th><td>{{ $task->name }}</td></tr>
+            <th>特定原材料:</th> <td>{{ $task->allergy }}</td></tr>
+            <th>熱量:</th>  <td>{{ $task->kcal }}</td></tr>
+            <th>糖質:</th><td>{{ $task->suger }}</td></tr>
+        　　<th>食塩相当量:</th><td>{{ $task->solt}}</td></tr>
+        　　<th>備考:</th> <td>{{$task->detail}}</td></tr>
+    @endforeach
+   
+    </table><br>
 
-　　　　 <table border="1">
-        <tr>
-            <th>商品名
-            <th>特定原材料
-            <th>熱量
-            <th>糖質
-        　　<th>食塩相当量
-        　　<th>備考
-
-@foreach ($tasks as $task)
-        <tr>
-            <td>{{ $task->name }}
-            <td>{{ $task->allergy }}
-            <td>{{ $task->kcal }}
-            <td>{{ $task->suger }}
-            <td>{{ $task->solt}}
-            <td>{{$task->detail}}
-@endforeach</table>
-
-
+</section>
  <button><a href="/top">前に戻る</a></button><br>
 
 </div>
