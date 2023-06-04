@@ -7,12 +7,13 @@ use App\Http\Requests\TaskRegisterPost;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Task as TaskModel;
 use Illuminate\Support\Facades\DB;
-use App\Models\Image as ImageModel;
+use Illuminate\Http\Request;
+use App\Models\Image;
+
 
 
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
-use Illuminate\Http\Request;
 
 
 
@@ -28,13 +29,17 @@ class TaskController extends Controller
 
     }
       public function ice(){
-         $task=TaskModel::get();
-         $task = TaskModel::where('user_id',Auth::id())->get();
-         
+       
+    
+          $group_by_column = ['images.id'];
+        $task = TaskModel::select($group_by_column)
+                         ->leftJoin('tasks', 'images.id', '=', 'tasks.id')
+                         ->groupBy('$group_by_column')
+                         ->get();
 
-         return view('sevenice', ['tasks' => $task]);
-
+        return view('sevenice', ['images' => $task]);
     }
+     
     public function sevenetc(){
         return view('sevenetc');
     }
@@ -68,17 +73,30 @@ class TaskController extends Controller
      * */
 
     public function create(){
-
-          // 一覧の取得
-        $task = TaskModel::where('user_id',Auth::id())->get();
-        //
-        return view('task.create', ['task' => $task]);
-
+        return view('task.create');
     }
-    public function upload(){
-    return view('upload');
-}
+    
+    
+    //画像のアップロード
+public function upload(Request $request)
+    {
+        // ディレクトリ名
+        $dir = 'sample';
 
+        // アップロードされたファイル名を取得
+        $file_name = $request->file('image')->getClientOriginalName();
+
+        // 取得したファイル名で保存
+        $request->file('image')->storeAs('public/' . $dir, $file_name);
+
+        // ファイル情報をDBに保存
+        $image = new Image();
+        $image->name = $file_name;
+        $image->path = 'storage/' . $dir . '/' . $file_name;
+        $image->save();
+
+        return redirect('task.create',['image'=>$image]);
+    }
 
     /**
      * タスクの新規登録
@@ -110,6 +128,7 @@ class TaskController extends Controller
         //
         return redirect('/task/create');
     }
+    
 
     /**
      * タスクの編集画面表示

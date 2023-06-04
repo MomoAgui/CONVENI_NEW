@@ -6,6 +6,8 @@ use App\Http\Controllers\TopController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\ImageController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,8 +46,7 @@ Route::get('/lawsonall',[TaskController::class,'lawsonall']);
 Route::get('/user/index',[TopController::class,'index']);
 //登録機能
         Route::get('/task/create', [TaskController::class, 'create']);
-        Route::get('/add_image',[ImageController::class,'addImage']);
-        Route::post('/add_image',[ImageController::class,'addImage'] )->name('add_image');
+        Route::post('/task/create',[TaskController::class,'upload'] );
         Route::post('/task/register',[TaskController::class,'register']);  //登録送信
         Route::get('/task/edit', [TaskController::class, 'edit']);
         Route::put('/task/edit', [TaskController::class, 'editSave'])->name('edit_save');

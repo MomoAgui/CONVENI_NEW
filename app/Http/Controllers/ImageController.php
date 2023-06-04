@@ -1,26 +1,30 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
-use App\Models\Image as ImageModel;
+use App\Models\Image;
 
 class ImageController extends Controller
 {
-    public function addImage(Request $request)
+    public function upload(Request $request)
     {
-      
-       $file_name = $request->file('image');
-       $request->file('image')->storege('public/' .$file_name);
-       
-       $image=new Image();
-       $image->name=$file_name;
-       $image->path='storage/' .$file_name;
-       $image->save();
-        
-        return view('add_image',['image'=>$Image]);
+        // ディレクトリ名
+        $dir = 'sample';
+
+        // アップロードされたファイル名を取得
+        $file_name = $request->file('image')->getClientOriginalName();
+
+        // 取得したファイル名で保存
+        $request->file('image')->storeAs('public/' . $dir, $file_name);
+
+        // ファイル情報をDBに保存
+        $image = new Image();
+        $image->name = $file_name;
+        $image->path = 'storage/' . $dir . '/' . $file_name;
+        $image->save();
+
+        return redirect('/');
     }
-    
 }
