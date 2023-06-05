@@ -21,7 +21,7 @@
                           <input type="file" name="image">
                           <button>アップロード</button>
                       </form>
-                     
+
            <form action="/task/register" method="post">
                 @csrf
                 商品名:<input name="name" value="{{ old('name') }}"><br>

@@ -29,17 +29,11 @@ class TaskController extends Controller
 
     }
       public function ice(){
-       
-    
-          $group_by_column = ['images.id'];
-        $task = TaskModel::select($group_by_column)
-                         ->leftJoin('tasks', 'images.id', '=', 'tasks.id')
-                         ->groupBy('$group_by_column')
-                         ->get();
 
-        return view('sevenice', ['images' => $task]);
-    }
-     
+          $task =TaskModel::where('user_id',Auth::id())->get();
+
+        return view('sevenice',['tasks'=>$task]);
+      }
     public function sevenetc(){
         return view('sevenetc');
     }
@@ -75,8 +69,8 @@ class TaskController extends Controller
     public function create(){
         return view('task.create');
     }
-    
-    
+
+
     //画像のアップロード
 public function upload(Request $request)
     {
@@ -88,14 +82,18 @@ public function upload(Request $request)
 
         // 取得したファイル名で保存
         $request->file('image')->storeAs('public/' . $dir, $file_name);
+        $datum['task_id'] = Auth::id();
 
         // ファイル情報をDBに保存
         $image = new Image();
         $image->name = $file_name;
         $image->path = 'storage/' . $dir . '/' . $file_name;
+
         $image->save();
 
-        return redirect('task.create',['image'=>$image]);
+
+
+        return redirect('task.create');
     }
 
     /**
@@ -113,6 +111,7 @@ public function upload(Request $request)
         // user_id の追加
         $datum['user_id'] = Auth::id();
 
+
         // テーブルへのINSERT
         try {
              TaskModel::create($datum);
@@ -128,7 +127,7 @@ public function upload(Request $request)
         //
         return redirect('/task/create');
     }
-    
+
 
     /**
      * タスクの編集画面表示
@@ -151,7 +150,7 @@ public function upload(Request $request)
             return null;
         }
         // 本人以外のタスクならNGとする
-        if ($task->user_id !== Auth::id()) {
+        if ($task->seven_user_id !== Auth::id()) {
             return null;
         }
         //
@@ -166,7 +165,7 @@ public function upload(Request $request)
         // task_idのレコードを取得する
         $task = $this->getTaskModel($task_id);
         if ($task === null) {
-            return redirect('/task/list');
+            return redirect('/sevenice');
         }
 
         // テンプレートに「取得したレコード」の情報を渡す
@@ -189,9 +188,11 @@ public function upload(Request $request)
 
         // レコードの内容をUPDATEする
         $task->name = $datum['name'];
-        $task->period = $datum['period'];
+        $task->allergy = $datum['allergy'];
+        $task->kcal = $datum['kcal'];
+        $task->suger = $datum['suger'];
+        $task->solt = $datum['solt'];
         $task->detail = $datum['detail'];
-        $task->priority = $datum['priority'];
 
         // レコードを更新
         $task->save();
@@ -199,7 +200,7 @@ public function upload(Request $request)
         // タスク編集成功
         $request->session()->flash('front.task_edit_success', true);
         // 詳細閲覧画面にリダイレクトする
-        return redirect(route('detail', ['task_id' => $task->id]));
+        return redirect(route('sevenice', ['task_id' => $task->id]));
     }
     /**
      * 削除処理

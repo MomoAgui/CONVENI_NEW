@@ -21,12 +21,16 @@ class CreateTasksTable extends Migration
             $table->float('suger',8,2)->comment('糖質');
             $table->float('solt',8,2)->comment('食塩相当量');
             $table->text('detail')->comment('備考');
-            $table->unsignedBigInteger('user_id')->comment('このタスクの所有者');
+            $table->char
             $table->foreign('user_id')->references('id')->on('users'); // 外部キー制約
             //$table->timestamps();
-            $table->dateTime('created_at')->useCurrent()->comment('登録日');
+            $table->dateTime('created_at')->useCurrent();
             $table->dateTime('updated_at')->useCurrent()->useCurrentOnUpdate();
             $table->collation ='utf8mb4_bin';
+
+
+
+
         });
     }
 

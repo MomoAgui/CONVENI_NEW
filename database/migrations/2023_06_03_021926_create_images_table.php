@@ -17,7 +17,11 @@ class CreateImagesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('path');
-            $table->timestamps();
+            $table->foreign('task_id')->references('id')->on('users'); // 外部キー制約
+            //$table->timestamps();
+            $table->dateTime('created_at')->useCurrent();
+            $table->dateTime('updated_at')->useCurrent()->useCurrentOnUpdate();
+            $table->collation ='utf8mb4_bin';
         });
     }
 

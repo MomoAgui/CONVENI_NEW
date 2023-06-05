@@ -7,8 +7,8 @@
       <header>
         <img src="/img/seven_icon.png" width="70" height="45" >
         <h1>主食系</h1>
-            <a href="/task/edit">編集</a>
-            <a href="/task/create">新しい食材を登録する</a>
+            <a href="{{route('/task/edit',['seven_user_id'=>$task->id])}}">編集</a>
+            <a href=/task/create">新しい食材を登録する</a>
       </header>
 
              @if (session('front.sevenice_delete_success') == true)
@@ -129,22 +129,17 @@
 
 　  @foreach ($tasks as $task)
 
-            <tr><th>商品名:</th><td>{{ $task->name }}</td></tr>
-             <tr><th>画像：</th><td> <img src="{{ asset($image->path) }}"></td></tr>
-            <tr><th>特定原材料:</th> <td>{{ $task->allergy }}</td></tr>
-            <tr><th>熱量:</th>  <td>{{ $task->kcal }}</td></tr>
-            <tr><th>糖質:</th><td>{{ $task->suger }}</td></tr>
-        　　<tr><th>食塩相当量:</th><td>{{ $task->solt}}</td></tr>
-        　　<tr><th>備考:</th> <td>{{$task->detail}}</td></tr>
+            <tr><th>商品名:</th><td>{{ $task->seven_name }}</td></tr>
+            <tr><th>画像：</th><td> <img src="{{ asset($task->path) }}"></td></tr>
+            <tr><th>特定原材料:</th> <td>{{ $task->seven_allergy }}</td></tr>
+            <tr><th>熱量:</th>  <td>{{ $task->seven_kcal }}</td></tr>
+            <tr><th>糖質:</th><td>{{ $task->seven_suger }}</td></tr>
+        　　<tr><th>食塩相当量:</th><td>{{ $task->seven_solt}}</td></tr>
+        　　<tr><th>備考:</th> <td>{{$task->seven_detail}}</td></tr>
     @endforeach
 
     </table><br>
-    
-    <table>
-        @foreach($images as $image)
-        <tr><th>画像：</th><td> <img src="{{ asset($image->path) }}"></td></tr>
-        @endforeach
-    </table>
+
 
 </section>
  <button><a href="/top">前に戻る</a></button><br>

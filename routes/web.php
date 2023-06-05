@@ -5,7 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TopController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TaskController;
-use App\Http\Controllers\ImageController;
+
 
 
 /*
@@ -48,8 +48,8 @@ Route::get('/user/index',[TopController::class,'index']);
         Route::get('/task/create', [TaskController::class, 'create']);
         Route::post('/task/create',[TaskController::class,'upload'] );
         Route::post('/task/register',[TaskController::class,'register']);  //登録送信
-        Route::get('/task/edit', [TaskController::class, 'edit']);
-        Route::put('/task/edit', [TaskController::class, 'editSave'])->name('edit_save');
+        Route::get('/task/edit/{user_id}', [TaskController::class, 'edit'])->whereNumber('user_id')->name('edit');
+        Route::put('/task/edit/{user_id}', [TaskController::class, 'editSave'])->whereNumber('user_id')->name('edit_save');
         Route::delete('/task/delete/{task_id}', [TaskController::class, 'delete'])->whereNumber('task_id')->name('delete');
 
 

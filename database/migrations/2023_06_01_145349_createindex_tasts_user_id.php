@@ -15,7 +15,8 @@ class CreateindexTastsUserId extends Migration
     {
         //
         Schema::table('tasks', function (Blueprint $table) {
-            $table->index('user_id');
+            $table->index('seven_user_id');
+           
         });
     }
 
@@ -28,7 +29,8 @@ class CreateindexTastsUserId extends Migration
     {
         //
         Schema::table('tasks', function (Blueprint $table) {
-            $table->dropIndex('user_id');
+            $table->dropIndex('seven_user_id');
+           
         });
     }
 }
