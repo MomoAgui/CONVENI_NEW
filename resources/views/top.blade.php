@@ -38,6 +38,8 @@
                <p><a href="/sevenice">主食系</a></p><br>
                <p><a href="/sevenetc">タンパク質・ビタミンその他</a></a></p><br>
                <p><a href="/sevenall">すべて</a></p><br>
+               <p><a href="{{ route('detail', ['task_id' => $task->id]) }}">詳細閲覧</a></p>
+               <p><a href="{{ route('edit', ['task_id' => $task->id]) }}">編集</a></p>
          </div>
          </li>
 
@@ -49,6 +51,8 @@
                  <p><a href="/famimaice">主食系</a></p><br>
                  <p><a href="/famimaetc">タンパク質・ビタミンその他</a></p><br>
                  <p><a href="/famimaall">すべて</a></p><br>
+                  <p><a href="{{ route('detail', ['task_id' => $task->id]) }}">詳細閲覧</a></p>
+               <p><a href="{{ route('edit', ['task_id' => $task->id]) }}">編集</a></p>
          </div>
           </li>
 
@@ -59,6 +63,8 @@
                   <p><a href="/lawsonice">主食系</a></p><br>
                   <p><a href="/lawsonetc">タンパク質・ビタミンその他</a></p><br>
                   <p><a href="/lawsonall">すべて</a></p><br>
+                   <p><a href="{{ route('detail', ['task_id' => $task->id]) }}">詳細閲覧</a></p>
+               <p><a href="{{ route('edit', ['task_id' => $task->id]) }}">編集</a></p>
             </div>
           </li>
       </ul>

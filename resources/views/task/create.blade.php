@@ -16,15 +16,12 @@
                 @endforeach
                 </div>
             @endif
-              画像：<form method="POST" action="/task/create" enctype="multipart/form-data">
-                          @csrf
-                          <input type="file" name="image">
-                          <button>アップロード</button>
-                      </form>
+              
 
-           <form action="/task/register" method="post">
+           <form action="/task/register" method="post" enctype="multipart/form-data">
                 @csrf
                 商品名:<input name="name" value="{{ old('name') }}"><br>
+                画像：<input type="file" name="image"> <br>
                 特定原材料:<input name="allergy"　value="{{ old('allergy')}}" ><br>
                 熱量:<input name="kcal" value="{{ old('kcal')}}" ><br>
                 糖質:<input name="suger" value="{{ old('sugaer')}}"><br>

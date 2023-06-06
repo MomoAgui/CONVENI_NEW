@@ -16,6 +16,8 @@ class CreateTasksTable extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
             $table->string('name', 128)->comment('商品名');
+            $table->string('image');
+            $table->string('path');
             $table->string('allergy',128)->comment('特定原材料アレルギー');
             $table->integer('kcal')->comment('熱量カロリー');
             $table->float('suger',8,2)->comment('糖質');

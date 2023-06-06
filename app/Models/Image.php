@@ -8,7 +8,9 @@ class Image extends Model {
   protected $fillable = [
     'name',
     'path',
-    'task_id'
+    'task_id',
+    'image',
+    
   ];
   
 }

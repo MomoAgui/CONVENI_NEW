@@ -24,6 +24,8 @@ class User extends Authenticatable
         'birth_year',
         'birth_month',
         'birth_day',
+        'image',
+        'path',
 
     ];
 

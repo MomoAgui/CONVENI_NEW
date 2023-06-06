@@ -18,12 +18,16 @@ class TaskRegisterPost extends FormRequest
         return [
             //
             'name'=>['required','max:128'],
+           'image' => ['required','image:mimes:jpeg,png,jpg,gif','max:2048'],
+            'path'=>['string'],
             'allergy'=>['required','max:128'],
             'kcal'=>['required'],
             'suger'=>['required','between:0,99.99'],
             'solt'=>['required','between:0,99.99'],
             'detail'=>['required','max:128'],
             'conveni_num'=>['required'],
+            'path'=>['string'],
+            
     ];
     }
 }
