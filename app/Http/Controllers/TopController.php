@@ -108,7 +108,7 @@ class TopController extends Controller
         // タスク編集成功
         $request->session()->flash('front.task_edit_success', true);
         // 詳細閲覧画面にリダイレクトする
-        return redirect(route('sevenice', ['task_id' => $task->id]));
+        return redirect(route('top', ['task_id' => $task->id]));
     }
     /**
      * 削除処理
@@ -125,7 +125,7 @@ class TopController extends Controller
         }
 
         // 一覧に遷移する
-        return redirect('/sevenice');
+        return redirect('/top');
     }
 
 
