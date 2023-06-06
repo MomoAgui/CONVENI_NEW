@@ -14,7 +14,7 @@ use App\Models\Image;
 
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
-
+      
 
 
 class TaskController extends Controller
@@ -99,8 +99,9 @@ public function upload(Request $request)
     /**
      * タスクの新規登録
      */
-    public function register(TaskRegisterPost $request)
+       public function register(TaskRegisterPost $request)
     {
+
         // validate済みのデータの取得
         $datum = $request->validated();
         //
@@ -120,7 +121,6 @@ public function upload(Request $request)
             echo $e->getMessage();
             exit;
         }
-
         // タスク登録成功
         $request->session()->flash('front.task_register_success', true);
 

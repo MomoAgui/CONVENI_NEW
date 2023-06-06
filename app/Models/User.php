@@ -24,7 +24,7 @@ class User extends Authenticatable
         'birth_year',
         'birth_month',
         'birth_day',
-        'user_id',
+
     ];
 
     /**

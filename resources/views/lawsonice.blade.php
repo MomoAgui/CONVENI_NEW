@@ -4,10 +4,12 @@
 @section('contets')
 
 <div class="main">
-       
-      <img src="/img/lawson_icon.png" width="150" height="100"><h1>主食</h1><br>
+ <header>
+        <img src="/img/lawson_icon.png" width="70" height="45" >
+        <h1>主食系</h1>
+           <a href=/task/create>新しい食材を登録する</a>
 
-
+      </header>
         <h2></h2><br>
         <img src="/img/png" width="300" height="200"><br>
         <p class="text">

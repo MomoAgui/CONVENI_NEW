@@ -22,7 +22,8 @@ class TaskRegisterPost extends FormRequest
             'kcal'=>['required'],
             'suger'=>['required','between:0,99.99'],
             'solt'=>['required','between:0,99.99'],
-            'detail'=>['max:128']
+            'detail'=>['required','max:128'],
+            'conveni_num'=>['required'],
     ];
     }
 }

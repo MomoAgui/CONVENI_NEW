@@ -30,12 +30,20 @@
                 糖質:<input name="suger" value="{{ old('sugaer')}}"><br>
                 食塩相当量：<input name="solt" value="{{ old('solt')}}"><br>
                 備考：<textarea name="detail" type="text" value="{{ old('detail')}}"></textarea><br>
-                <button>新しい食材を登録する</button>
+                
+               
+                どのコンビニの商品を登録しますか？:
+                   
+                 セブンイレブン:<label><input name="conveni_num" type="checkbox"　value="1"></label>
+                ファミリーマート:<label><input name="conveni_num" type="checkbox" value="2"></label>
+                ローソン:<label><input name="conveni_num" type="checkbox" value="3"></label>
+               <br>
+                <button>新しい食材を登録する</button><br>
             </form>
 
         <hr>
         <menu label="リンク">
-        <a href="/sevenice">セブン主食ページに戻る</a><br>
+        <a href="/top">topページに戻る</a><br>
         <a href="/logout">ログアウト</a><br>
         </menu>
 @endsection

@@ -17,6 +17,7 @@ class CreateImagesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('path');
+            $table->conveni_num_Integer('task_id')->comment('このタスクの所有者');
             $table->foreign('task_id')->references('id')->on('users'); // 外部キー制約
             //$table->timestamps();
             $table->dateTime('created_at')->useCurrent();

@@ -9,9 +9,10 @@
       <header>
         <img src="/img/famima_icon.png" width="70" height="45" >
         <h1>主食系</h1>
+           <a href=/task/create>新しい食材を登録する</a>
 
       </header>
-<div class="main">
+
        
 
         　<h2>[無添加]　小麦香る食パン</h2><br>

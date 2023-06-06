@@ -7,8 +7,8 @@
       <header>
         <img src="/img/seven_icon.png" width="70" height="45" >
         <h1>主食系</h1>
-            <a href="{{route('/task/edit',['seven_user_id'=>$task->id])}}">編集</a>
-            <a href=/task/create">新しい食材を登録する</a>
+    
+            <a href=/task/create>新しい食材を登録する</a>
       </header>
 
              @if (session('front.sevenice_delete_success') == true)
