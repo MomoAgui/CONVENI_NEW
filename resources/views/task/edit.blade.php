@@ -22,12 +22,17 @@
                 糖質:<input name="suger" value="{{ old('sugaer')}}"><br>
                 食塩相当量：<input name="solt" value="{{ old('solt')}}"><br>
                 備考：<textarea name="detail" type="text" value="{{ old('detail')}}"></textarea><br>
-                <button>編集する</button>
-            </form>
-
+                
+                  <button>編集する</button>
+                <hr>
+        <form action="{{ route('delete', ['task_id' => $task->id]) }}" method="post">
+            @csrf
+            @method("DELETE")
+            <button onclick='return confirm("この商品を削除します(削除したら戻せません)。よろしいですか？");'>商品を削除する</button>
+        </form>
         <hr>
         <menu label="リンク">
-        <a href="/sevenice">セブン主食ページに戻る</a><br>
+        <a href="/top">topページに戻る</a><br>
         <a href="/logout">ログアウト</a><br>
         </menu>
 @endsection

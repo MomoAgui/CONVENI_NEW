@@ -48,8 +48,8 @@ Route::get('/user/index',[TopController::class,'index']);
         Route::get('/task/create', [TaskController::class, 'create']);
         Route::post('/task/create',[TaskController::class,'upload'] );
         Route::post('/task/register',[TaskController::class,'register']);  //登録送信
-        Route::get('/task/edit/{user_id}', [TaskController::class, 'edit'])->whereNumber('user_id')->name('edit');
-        Route::put('/task/edit/{user_id}', [TaskController::class, 'editSave'])->whereNumber('user_id')->name('edit_save');
+        Route::get('/task/edit/{task_id}', [TaskController::class, 'edit'])->whereNumber('task_id')->name('edit');
+        Route::put('/task/edit/{task_id}', [TaskController::class, 'editSave'])->whereNumber('task_id')->name('edit_save');
         Route::delete('/task/delete/{task_id}', [TaskController::class, 'delete'])->whereNumber('task_id')->name('delete');
 
 

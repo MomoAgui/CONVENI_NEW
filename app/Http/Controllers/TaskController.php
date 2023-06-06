@@ -139,7 +139,7 @@ public function upload(Request $request)
         return $this->singleTaskRender($task_id, 'task.edit');
     }
 
-    /**
+      /**
      * 「単一のタスク」Modelの取得
      */
     protected function getTaskModel($task_id)
@@ -150,7 +150,7 @@ public function upload(Request $request)
             return null;
         }
         // 本人以外のタスクならNGとする
-        if ($task->seven_user_id !== Auth::id()) {
+        if ($task->user_id !== Auth::id()) {
             return null;
         }
         //
@@ -165,13 +165,12 @@ public function upload(Request $request)
         // task_idのレコードを取得する
         $task = $this->getTaskModel($task_id);
         if ($task === null) {
-            return redirect('/sevenice');
+            return redirect('/top');
         }
 
         // テンプレートに「取得したレコード」の情報を渡す
-        return view($template_name, ['tasks' => $task]);
+        return view($template_name, ['task' => $task]);
     }
-
     /**
      * タスクの編集処理
      */
@@ -183,7 +182,7 @@ public function upload(Request $request)
         // task_idのレコードを取得する
         $task = $this->getTaskModel($task_id);
         if ($task === null) {
-            return redirect('/sevenice');
+            return redirect('/top');
         }
 
         // レコードの内容をUPDATEする
