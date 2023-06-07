@@ -22,7 +22,7 @@
                 糖質:<input name="suger" value="{{ old('sugaer')}}"><br>
                 食塩相当量：<input name="solt" value="{{ old('solt')}}"><br>
                 備考：<textarea name="detail" type="text" value="{{ old('detail')}}"></textarea><br>
-                
+
                   <button>編集する</button>
                 <hr>
         <form action="{{ route('delete', ['task_id' => $task->id]) }}" method="post">

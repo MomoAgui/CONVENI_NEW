@@ -10,6 +10,9 @@ a{
     text-decoration:none;
     
 }
+table{
+    margin:auto;
+}
 button{    
     background-color:white;
     padding:10px 30px;

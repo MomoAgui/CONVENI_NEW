@@ -25,6 +25,13 @@ class Task extends Model
     'name',
     'path',
     'image',
+    'allergy',
+    'kcal',
+    'suger',
+    'solt',
+    'detail',
+    'conveni_num',
+    'user_id',
     
   ];
    public function task()

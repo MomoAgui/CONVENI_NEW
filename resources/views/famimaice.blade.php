@@ -51,6 +51,24 @@
                 <br>
                 </br>
 　　　　</p>
+　　　　<section>
+　<table class="row">
+
+　  @foreach ($tasks as $task)
+
+            <tr><th>商品名:</th><td>{{ $task->name }}</td></tr>
+            <tr><th>画像：</th><td> <img src="{{ asset($task->path) }}"></td></tr>
+            <tr><th>特定原材料:</th> <td>{{ $task->allergy }}</td></tr>
+            <tr><th>熱量:</th>  <td>{{ $task->kcal }}</td></tr>
+            <tr><th>糖質:</th><td>{{ $task->suger }}</td></tr>
+        　　<tr><th>食塩相当量:</th><td>{{ $task->solt}}</td></tr>
+        　　<tr><th>備考:</th> <td>{{$task->detail}}</td></tr>
+    @endforeach
+
+    </table><br>
+
+
+</section>
         
        <button><a href="/top">前に戻る</a></button><br>
 

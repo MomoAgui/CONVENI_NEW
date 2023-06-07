@@ -30,7 +30,7 @@ class TaskController extends Controller
     }
       public function ice(){
 
-          $task =TaskModel::where('user_id',Auth::id())->get();
+          $task =TaskModel::where('conveni_num','1')->get();
 
         return view('sevenice',['tasks'=>$task]);
       }
@@ -41,7 +41,10 @@ class TaskController extends Controller
         return view('sevenall');
     }
     public function famiice(){
-        return view('famimaice');
+         $task =TaskModel::where('conveni_num','2')->get();
+
+        return view('famimaice',['tasks'=>$task]);
+        
     }
     public function famimaetc(){
         return view('famimaetc');
@@ -50,7 +53,10 @@ class TaskController extends Controller
         return view('famimaall');
     }
      public function lawsonice(){
-        return view('lawsonice');
+          $task =TaskModel::where('conveni_num','3')->get();
+
+        return view('lawsonice',['tasks'=>$task]);
+    
     }
      public function lawsonetc(){
         return view('lawsonetc');
@@ -95,11 +101,15 @@ class TaskController extends Controller
 
         // 取得したファイル名で保存
         $request->file('image')->storeAs('public/' . $dir, $file_name);
-     
         $request->file('image')->hashName();
-        $request->path = 'storage/' . $dir . '/' . $file_name;
+        
+        
+        $datum['image']=$file_name;
+        $datum['path'] = 'storage/' . $dir . '/' . $file_name;
+       
+      
+       
 
-var_dump($datum);
         // テーブルへのINSERT
         try {
              TaskModel::create($datum);
