@@ -77,8 +77,7 @@ class TaskController extends Controller
      */
        public function register(TaskRegisterPost $request)
     {
-
-        // validate済みのデータの取得
+       // validate済みのデータの取得
         $datum = $request->validated();
         //
         //$user = Auth::user();
@@ -96,13 +95,15 @@ class TaskController extends Controller
 
         // 取得したファイル名で保存
         $request->file('image')->storeAs('public/' . $dir, $file_name);
-       
+     
+        $request->file('image')->hashName();
+        $request->path = 'storage/' . $dir . '/' . $file_name;
 
-
-
+var_dump($datum);
         // テーブルへのINSERT
         try {
              TaskModel::create($datum);
+              
         } catch(\Throwable $e) {
             // XXX 本当はログに書く等の処理をする。今回は一端「出力する」だけ
             echo $e->getMessage();

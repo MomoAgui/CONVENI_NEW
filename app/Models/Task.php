@@ -27,4 +27,8 @@ class Task extends Model
     'image',
     
   ];
+   public function task()
+  {
+  $fnamebase = \Config::get('fpath.image').$this->id."/"."image.";
+  }
 }

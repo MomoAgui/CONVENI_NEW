@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User as UserModel;
+use App\Models\Task as TaskModel;
 
 use Illuminate\Http\Request;
 
@@ -15,9 +16,15 @@ class TopController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function top()
-    {
-        return view('top');
+    public function top(){
+      // 一覧の取得
+       $task=TaskModel::get();
+
+
+        $task = TaskModel::where('user_id',Auth::id())->get();
+        //
+
+        return view('top',['tasks'=>$task]);
     }
   
     public function index(){
@@ -36,7 +43,17 @@ class TopController extends Controller
      */
     public function detail($task_id)
     {
-        var_dump($task_id); exit;
+          $task = TaskModel::find($task_id);
+           if ($task === null) {
+            return redirect('/top');
+        }
+         // 本人以外のタスクならNGとする
+        if ($task->user_id !== Auth::id()) {
+            return redirect('/top');
+        }
+           // テンプレートに「取得したレコード」の情報を渡す
+        return view('task.detail', ['tasks' => $task]);
+
     }
      /**
      * タスクの編集画面表示
@@ -78,7 +95,7 @@ class TopController extends Controller
         }
 
         // テンプレートに「取得したレコード」の情報を渡す
-        return view($template_name, ['task' => $task]);
+        return view($template_name, ['tasks' => $task]);
     }
     /**
      * タスクの編集処理

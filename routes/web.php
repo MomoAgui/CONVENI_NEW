@@ -47,9 +47,9 @@ Route::get('/lawsonall',[TaskController::class,'lawsonall']);
 Route::get('/user/index',[TopController::class,'index']);
 //登録機能
         Route::get('/task/create', [TaskController::class, 'create']);
-        Route::post('/task/register',[ImageController::class,'upload'] );
+      
         Route::post('/task/register',[TaskController::class,'register']);  //登録送信
-        Route::get('/detail/{task_id}', [TopController::class, 'detail'])->whereNumber('task_id')->name('detail');
+        Route::get('/task/detail/{task_id}', [TopController::class, 'detail'])->whereNumber('task_id')->name('detail');
         Route::get('/task/edit/{task_id}', [TopController::class, 'edit'])->whereNumber('task_id')->name('edit');
         Route::put('/task/edit/{task_id}', [TopController::class, 'editSave'])->whereNumber('task_id')->name('edit_save');
         Route::delete('/task/delete/{task_id}', [TaskController::class, 'delete'])->whereNumber('task_id')->name('delete');
