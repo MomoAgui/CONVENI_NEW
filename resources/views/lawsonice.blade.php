@@ -6,67 +6,24 @@
 <div class="main">
  <header>
         <img src="/img/lawson_icon.png" width="70" height="45" >
-        <h1>主食系</h1>
-           <a href=/task/create>新しい食材を登録する</a>
+        <h1>無添加・その他</h1><br>
+          
 
       </header>
-        <h2></h2><br>
-        <img src="/img/png" width="300" height="200"><br>
-        <p class="text">
-        　　　　　<br>
-                <br>
-               <br>
-               <br>
-                <br>
-                </br>
-　　　　</p>
-　　　　
-　　　　<h2>豆腐</h2><br>
-        <img src="/img/png" width="300" height="200"><br>
-        <p class="text">
-                <br>
-                <br>
-               <br>
-               <br>
-                <br>
-                </br>
-　　　　</p>
-　　　　
-　　　　
-　　　　<h2>ゆで卵</h2><br>
-        <img src="/img/png" width="300" height="200"><br>
-        <p class="text">
-                <br>
-                <br>
-               <br>
-               <br>
-                <br>
-                </br>
-　　　　</p>
-　　　　
-　　　　
-　　　　　<h2>野菜スムージー</h2><br>
-        <img src="/img/png" width="300" height="200"><br>
-        <p class="text">
-                <br>
-                <br>
-               <br>
-               <br>
-                <br>
-                </br>
-　　　　</p>
+
 <section>
 　<table class="row">
 
 　  @foreach ($tasks as $task)
 
-            <tr><th>商品名:</th><td>{{ $task->name }}</td></tr>
-            <tr><th>画像：</th><td> <img src="{{ asset($task->path) }}"></td></tr>
-            <tr><th>特定原材料:</th> <td>{{ $task->allergy }}</td></tr>
-            <tr><th>熱量:</th>  <td>{{ $task->kcal }}</td></tr>
-            <tr><th>糖質:</th><td>{{ $task->suger }}</td></tr>
-        　　<tr><th>食塩相当量:</th><td>{{ $task->solt}}</td></tr>
-        　　<tr><th>備考:</th> <td>{{$task->detail}}</td></tr>
+            <tr><th><h2>{{ $task->name }}</h2></th><td></td></tr>
+            <tr> <th><img src="{{ asset($task->path) }}" width="300" height="200"  ></th></tr>
+            <tr><th>特定原材料:&emsp; {{ $task->allergy }}</th></tr>
+            <tr><th>熱量:&emsp;&emsp;{{ $task->kcal }}kcal</th>  <td></td></tr>
+            <tr><th>糖質:&emsp;&emsp;{{ $task->suger }}g</th><td></td></tr>
+        　　<tr><th>食塩相当量:&emsp;{{ $task->solt}}</th><td></td></tr>
+        　　<tr><th>備考:&emsp;{{$task->detail}}</th> <td></td></tr>
+        　　<tr><th><br><br><br><br><br><br></th></tr>
     @endforeach
 
     </table><br>

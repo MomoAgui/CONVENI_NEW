@@ -13,7 +13,15 @@ section{
     color:#999999;
 }
 table{
-    margin:auto;
+    margin:0 auto;
+}
+table h2{
+    text-align: center;
+}
+table th{
+   
+    text-align:left;
+    display: inline-block;
 }
 a{
     text-decoration:none;

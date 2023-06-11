@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\TaskRegisterPost;
 use App\Models\User as UserModel;
 use App\Models\Task as TaskModel;
 
@@ -11,22 +12,37 @@ use Illuminate\Http\Request;
 
 class TopController extends Controller
 {
+      protected function getListBuilder()
+    {
+        return TaskModel::where('user_id', Auth::id());
+    }
     /**
      * トップページ を表示する
      *
      * @return \Illuminate\View\View
      */
     public function top(){
+
+
+          if(session()->has('count')){
+            $count=session('count');
+        }else{
+            $count=0;
+        }
+        $count++;
+        session(['count'=>"$count"]);
+
       // 一覧の取得
-       $task=TaskModel::get();
+      $list = $this->getListBuilder();
 
-
-        $task = TaskModel::where('user_id',Auth::id())->get();
+        $seven_lists = TaskModel::where('conveni_num','1')->where('user_id', Auth::id())->get();
+         $famima_lists = TaskModel::where('conveni_num','2')->where('user_id', Auth::id())->get();
+          $lawson_lists = TaskModel::where('conveni_num','3')->where('user_id', Auth::id())->get();
         //
 
-        return view('top',['tasks'=>$task]);
+         return view('top',compact('seven_lists','famima_lists','lawson_lists','count'));
     }
-  
+
     public function index(){
 
       // 一覧の取得
@@ -43,16 +59,18 @@ class TopController extends Controller
      */
     public function detail($task_id)
     {
-          $task = TaskModel::find($task_id);
-           if ($task === null) {
+          $seven_lists = TaskModel::find($task_id)->where('conveni_num','1')->where('user_id', Auth::id())->get();
+          $famima_lists = TaskModel::find($task_id)->where('conveni_num','2')->where('user_id', Auth::id())->get();
+          $lawson_lists = TaskModel::find($task_id)->where('conveni_num','3')->where('user_id', Auth::id())->get();
+           if ($seven_lists === null) {
             return redirect('/top');
         }
          // 本人以外のタスクならNGとする
-        if ($task->user_id !== Auth::id()) {
+        if ($seven_lists->user_id !== Auth::id()) {
             return redirect('/top');
         }
            // テンプレートに「取得したレコード」の情報を渡す
-        return view('task.detail', ['tasks' => $task]);
+        return view('task.detail',compact('seven_lists','famima_lists','lawson_lists'));
 
     }
      /**
@@ -60,9 +78,7 @@ class TopController extends Controller
      */
     public function edit($task_id)
     {
-        // task_idのレコードを取得する(引数で取得)
-        // テンプレートに「取得したレコード」の情報を渡す
-        return $this->singleTaskRender($task_id, 'task.edit');
+      return $this->singleTaskRender($task_id, 'task.edit');
     }
 
       /**
@@ -95,7 +111,7 @@ class TopController extends Controller
         }
 
         // テンプレートに「取得したレコード」の情報を渡す
-        return view($template_name, ['tasks' => $task]);
+        return view($template_name, ['task' => $task]);
     }
     /**
      * タスクの編集処理
@@ -113,6 +129,10 @@ class TopController extends Controller
 
         // レコードの内容をUPDATEする
         $task->name = $datum['name'];
+      $file_name = $request->file('image')->getClientOriginalName();
+        $task->image=$datum['image']=$file_name;
+
+        $task->path=$datum['path']='storage/' . 'sample' . '/' . $file_name;
         $task->allergy = $datum['allergy'];
         $task->kcal = $datum['kcal'];
         $task->suger = $datum['suger'];
@@ -124,8 +144,8 @@ class TopController extends Controller
 
         // タスク編集成功
         $request->session()->flash('front.task_edit_success', true);
-        // 詳細閲覧画面にリダイレクトする
-        return redirect(route('top', ['task_id' => $task->id]));
+        // editにリダイレクトする
+        return redirect(route('edit', ['task_id' => $task->id]));
     }
     /**
      * 削除処理
@@ -141,10 +161,11 @@ class TopController extends Controller
             $request->session()->flash('front.task_delete_success', true);
         }
 
-        // 一覧に遷移する
+        // 編集画面に遷移する
         return redirect('/top');
     }
-
+    
+   
 
 
 }

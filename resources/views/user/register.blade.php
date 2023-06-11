@@ -22,9 +22,10 @@
         <form action="/user/register" method="post">
             @csrf
         <input name="name" type="text" placeholder="Name"><br>
-        <input name="email" type="text" placeholder="Email"/ value="{{old('email')}}"><br>
+        <input name="email" type="text" placeholder="Email" value="{{old('email')}}"><br>
         <input name="password" type="password" placeholder="Password"/><br>
-        <input name="password_confirmation" type="password" placeholder="Password again">
+        <input name="password_confirmation" type="password" placeholder="Password again"><br>
+        お子様のお誕生日：
         @livewire('birthday')<br>
 
          <button class="btn">登録する</button><br>

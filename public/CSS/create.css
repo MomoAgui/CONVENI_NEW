@@ -1,0 +1,19 @@
+.main{
+    text-align:center;
+    font-family:cursive;
+}
+
+.main span{
+    color:red;
+}
+.main-contets{
+    display: block;
+}
+.main-contets form{
+    text-align:left;
+    display: inline-block;
+}
+a{
+    text-decoration:none;
+    
+}
