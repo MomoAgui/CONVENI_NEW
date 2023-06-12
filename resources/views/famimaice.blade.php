@@ -19,6 +19,7 @@
        　<h2>[無添加]モッツァレラのさけるチーズプレーン 　</h2><br>
         <img src="/img/famima/ti-zu.png" width="100" height="200"><br>
         <p class="text">
+        特定原材料：乳<br>
                 熱量：73kcal<br>
                 糖質：0.8g<br>
                 食塩相当量：0.1g<br>
