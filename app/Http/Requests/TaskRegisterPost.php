@@ -25,15 +25,28 @@ class TaskRegisterPost extends FormRequest
            'image' => ['required','mimes:jpeg,jpg,png','max:2048'],
             'path'=>['max:2048'],
             'allergy'=>['required','max:128'],
-            'kcal'=>['required'],
+            'kcal'=>['required','integer'],
             'suger'=>['required','between:0,99.99'],
             'solt'=>['required','between:0,99.99'],
             'detail'=>['required','max:128'],
             'conveni_num'=>['required'],
-
-
-    ];
+      
+        ];
+      
+       
     }
+    public function messages()
+{
+    return [
+        'name.required' => '商品名は必須項目です．',
+        'kcal.integer' => '熱量(kcal)は整数でご入力ください．',
+        'suger.between:0,99.99' => '糖質は小数点を含む数値でご入力ください．',
+        'solt.between:0,99.99'=>'食塩相当量は小数点を含む数値でご入力ください．',
+        
+          
+    ];
+}
+    
 }
 
 

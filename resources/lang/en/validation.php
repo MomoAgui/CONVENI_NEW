@@ -107,7 +107,7 @@ return [
     'prohibited_unless' => 'The :attribute field is prohibited unless :other is in :values.',
     'prohibits' => 'The :attribute field prohibits :other from being present.',
     'regex' => 'The :attribute format is invalid.',
-    'required' => 'The :attribute field is required.',
+    'required' => ' :attribute必須項目です',
     'required_array_keys' => 'The :attribute field must contain entries for: :values.',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_unless' => 'The :attribute field is required unless :other is in :values.',
@@ -158,6 +158,15 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+          
+         'name'=>'名前',
+         'image'=>'画像は(jpeg/jpgまたはpngで投稿してください)',
+         'allergy'=>'特定原材料は(特定原材料とはアレルギー品目のことです)',
+         'suger'=>'糖質は',
+         'solt'=>'食塩相当量は',
+         'detail'=>'備考欄は(特記事項がない場合は「なし」で投稿してください)',
+         'conveni_num'=>'コンビニ選択は',
+         ],
 
 ];

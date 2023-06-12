@@ -13,7 +13,7 @@
          @if (session('front.task_register_success') == true)
                 商品を登録しました！！<br>
             @endif
-            @if ($errors->any())
+            @if ($errors->any)
                 <div>
                 @foreach ($errors->all() as $error)
                     {{ $error }}<br>

@@ -112,11 +112,15 @@ class TaskController extends Controller
 
         // テーブルへのINSERT
         try {
-             TaskModel::create($datum);
-              
+            TaskModel::create($datum);
+       
+            
         } catch(\Throwable $e) {
-            // XXX 本当はログに書く等の処理をする。今回は一端「出力する」だけ
-            echo $e->getMessage();
+            
+    
+         echo $e->getMessage();
+          
+            
             exit;
         }
         // タスク登録成功

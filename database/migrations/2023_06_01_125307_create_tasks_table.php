@@ -20,8 +20,8 @@ class CreateTasksTable extends Migration
             $table->string('path');
             $table->string('allergy',128)->comment('特定原材料アレルギー');
             $table->integer('kcal')->comment('熱量カロリー');
-            $table->float('suger',8,2)->comment('糖質');
-            $table->float('solt',8,2)->comment('食塩相当量');
+            $table->double('suger',8,2)->comment('糖質');
+            $table->double('solt',8,2)->comment('食塩相当量');
             $table->text('detail')->comment('備考');
             $table->unsignedBigInteger('user_id')->comment('このタスクの所有者');
             $table->foreign('user_id')->references('id')->on('users'); // 外部キー制約
